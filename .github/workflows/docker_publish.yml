@@ -1,4 +1,4 @@
-name: Docker Publish Workflow
+name: Dockerhub Publish Workflow
 
 on:
   workflow_call:

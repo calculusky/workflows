@@ -1,0 +1,55 @@
+name: DigitalOcean App Platform Deployment
+
+on:
+  workflow_call:
+    secrets:
+      access_token:
+        description: Digital Ocean Access Token
+        required: true
+
+    inputs:
+      app_name:
+        description: App Name
+        type: string
+        required: true
+
+      component_name:
+        description: Name of the component in App Spec
+        type: string
+        required: true
+
+      registry:
+        description: Docker Hub Registry Name
+        type: string
+        required: true
+
+      repository:
+        description: Docker Hub Repository Name
+        type: string
+        required: true
+
+      tag:
+        description: Image Tag Name
+        type: string
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: DigitalOcean App Platform deployment
+        uses: digitalocean/app_action@v1.1.5
+        with:
+          app_name: ${{ inputs.app_name}}
+          token: ${{ secrets.access_token }}
+          images: '[
+            {
+            "name": "${{ inputs.component_name}}",
+            "image":{
+            "registry_type": "DOCKER_HUB",
+            "registry": "${{ inputs.registry }}",
+            "repository": "${{ inputs.repository }}",
+            "tag": ${{ inputs.tag}}"
+            }
+            ]'

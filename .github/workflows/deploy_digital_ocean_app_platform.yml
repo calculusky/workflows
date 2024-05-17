@@ -50,5 +50,5 @@ jobs:
             "registry": "${{ secrets.registry }}",
             "repository": "${{ inputs.repository }}",
             "tag": ${{ inputs.tag}}"
-            }
+            },
             ]'

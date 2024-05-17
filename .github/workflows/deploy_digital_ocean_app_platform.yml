@@ -7,6 +7,10 @@ on:
         description: Digital Ocean Access Token
         required: true
 
+      registry:
+        description: Docker Hub Registry Name
+        required: true
+
     inputs:
       app_name:
         description: App Name
@@ -15,11 +19,6 @@ on:
 
       component_name:
         description: Name of the component in App Spec
-        type: string
-        required: true
-
-      registry:
-        description: Docker Hub Registry Name
         type: string
         required: true
 
@@ -48,7 +47,7 @@ jobs:
             "name": "${{ inputs.component_name}}",
             "image":{
             "registry_type": "DOCKER_HUB",
-            "registry": "${{ inputs.registry }}",
+            "registry": "${{ secrets.registry }}",
             "repository": "${{ inputs.repository }}",
             "tag": ${{ inputs.tag}}"
             }

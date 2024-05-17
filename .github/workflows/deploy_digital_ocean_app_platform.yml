@@ -49,6 +49,6 @@ jobs:
             "registry_type": "DOCKER_HUB",
             "registry": "${{ secrets.registry }}",
             "repository": "${{ inputs.repository }}",
-            "tag": ${{ inputs.tag}}"
+            "tag": "${{ inputs.tag}}"
             },
             ]'

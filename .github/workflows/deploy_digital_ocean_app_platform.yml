@@ -38,17 +38,17 @@ jobs:
 
     steps:
       - name: DigitalOcean App Platform deployment
-        uses: digitalocean/app_action@v1.1.5
+        uses: digitalocean/app_action@v1.1.6
         with:
           app_name: ${{ inputs.app_name}}
           token: ${{ secrets.access_token }}
           images: '[
             {
             "name": "${{ inputs.component_name}}",
-            "image":{
+            "image": {
             "registry_type": "DOCKER_HUB",
             "registry": "${{ secrets.registry }}",
             "repository": "${{ inputs.repository }}",
             "tag": "${{ inputs.tag}}"
-            },
+            }
             }]'

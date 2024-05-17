@@ -44,11 +44,11 @@ jobs:
           token: ${{ secrets.access_token }}
           images: '[
             {
-            "name": "${{ inputs.component_name}}",
+            "name": "africabeta-core-service",
             "image":{
             "registry_type": "DOCKER_HUB",
-            "registry": "${{ secrets.registry }}",
-            "repository": "${{ inputs.repository }}",
-            "tag": "${{ inputs.tag}}"
+            "registry": "softamosglobal",
+            "repository": "africabeta_core_service_dev",
+            "tag": "latest"
             },
             ]'
